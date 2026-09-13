@@ -1,0 +1,9 @@
+export type Project = { slug: string; number: string; title: string; category: string; year: string; uploadKey: string; accent: string; intro: string; detail: string; role: string; keywords: string; images: string[]; };
+
+export const projects: Project[] = [
+  { slug: "fizz", number: "01", title: "FIZZ", category: "Brand Identity", year: "2025", uploadKey: "fizz-cover", accent: "#ff1493", intro: "A sparkling identity for small moments of surprise.", detail: "FIZZ builds a graphic language around the instant before a bubble bursts: lively, a little unruly, and impossible to ignore.", role: "Art Direction\nVisual Identity\nGraphic Design", keywords: "Playful\nTactile\nRestless", images: ["fizz-cover", "fizz-detail-1", "fizz-detail-2"] },
+  { slug: "physical-icon", number: "02", title: "PHYSICAL ICON", category: "Editorial / Identity", year: "2025", uploadKey: "physical-icon-cover", accent: "#bfe9d3", intro: "A tactile visual system for movement and energy.", detail: "An identity study that translates the body in motion into condensed, high-contrast visual signals.", role: "Art Direction\nEditorial Design\nImage Making", keywords: "Movement\nStructure\nEnergy", images: ["physical-icon-cover", "physical-icon-detail-1", "physical-icon-detail-2"] },
+  { slug: "twist", number: "03", title: "TWISTED TYPE", year: "2024", category: "Typography", uploadKey: "twist-cover", accent: "#d9d4e8", intro: "Typography that stretches beyond its expected voice.", detail: "A sequence of letterform experiments that treats type as a responsive image rather than a static container for language.", role: "Typography\nArt Direction\nExperimental Design", keywords: "Elastic\nExpressive\nEditorial", images: ["twist-cover", "twist-detail-1", "twist-detail-2"] },
+];
+
+export const getProject = (slug: string) => projects.find((project) => project.slug === slug);
