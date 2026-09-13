@@ -25,8 +25,8 @@ async function optimizeImage(file: File) {
 export function UploadProvider({ children }: { children: React.ReactNode }) {
   const [uploads, setUploads] = useState<Record<string, string>>(publishedSettings.uploads || {});
   const [content, setContentState] = useState<Record<string, string>>(publishedSettings.content || {});
-  useEffect(() => { try { setUploads(JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}")); } catch { localStorage.removeItem(STORAGE_KEY); } }, []);
-  useEffect(() => { try { setContentState(JSON.parse(localStorage.getItem(CONTENT_STORAGE_KEY) || "{}")); } catch { localStorage.removeItem(CONTENT_STORAGE_KEY); } }, []);
+  useEffect(() => { try { const saved = localStorage.getItem(STORAGE_KEY); if (saved) setUploads(JSON.parse(saved)); } catch { localStorage.removeItem(STORAGE_KEY); } }, []);
+  useEffect(() => { try { const saved = localStorage.getItem(CONTENT_STORAGE_KEY); if (saved) setContentState(JSON.parse(saved)); } catch { localStorage.removeItem(CONTENT_STORAGE_KEY); } }, []);
   const save = (next: Record<string, string>) => { setUploads(next); localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); };
   const setUpload = async (key: string, file: File) => save({ ...uploads, [key]: await optimizeImage(file) });
   const clearUpload = (key: string) => { const next = { ...uploads }; delete next[key]; save(next); };
