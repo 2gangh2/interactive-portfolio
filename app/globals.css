@@ -65,3 +65,31 @@ footer { background: var(--plum); color: var(--paper); padding: 30px 3.4vw; min-
   .work-link .work-image.is-in-view .work-next-arrow { opacity: 1; transform: translateY(0); }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+
+/* Project search and filters */
+.work-filters { margin: -8px 0 48px; }
+.work-search-row { display: flex; align-items: flex-end; gap: 24px; margin-bottom: 28px; }
+.work-search { flex: 1; max-width: 620px; min-width: 0; }
+.work-search > span, .work-filter-group legend { font: 10px/1.4 var(--mono); letter-spacing: .06em; }
+.work-search input { display: block; width: 100%; margin-top: 9px; padding: 12px 0; border: 0; border-bottom: 1px solid var(--ink); border-radius: 0; background: transparent; color: var(--ink); font: 20px/1.4 var(--font-sans); }
+.work-search input::placeholder { color: #746e78; }
+.work-filter-group { border: 0; padding: 0; margin: 18px 0 0; min-width: 0; }
+.work-filter-group legend { padding: 0; margin-bottom: 9px; }
+.work-filter-options { display: flex; flex-wrap: wrap; gap: 8px; }
+.work-filter-options button { min-height: 44px; padding: 10px 16px; border: 1px solid #b8b3b8; border-radius: 24px; background: transparent; color: var(--ink); font: 12px/1.4 var(--mono); cursor: pointer; transition: background .2s, border-color .2s; }
+.work-filter-options button[aria-pressed="true"] { background: var(--mint); border-color: var(--ink); }
+.work-reset { min-height: 44px; padding: 10px 0; border: 0; border-bottom: 1px solid var(--ink); background: transparent; color: var(--ink); font: 11px/1.4 var(--mono); cursor: pointer; white-space: nowrap; }
+.work-filters :focus-visible, .work-empty button:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+.work-grid-filtered .work-card { margin: 0; width: 100%; grid-column: auto; }
+.work-empty { grid-column: 1 / -1; padding: 48px 0 64px; }
+.work-empty h2 { font-size: clamp(28px, 5vw, 56px); letter-spacing: -.05em; font-weight: 400; margin: 0 0 12px; }
+.work-empty p { margin-bottom: 24px; }
+@media (hover: hover) and (pointer: fine) { .work-filter-options button:hover { background: var(--mint); border-color: var(--ink); } }
+@media (max-width: 700px) {
+  .work-filters { margin-bottom: 36px; }
+  .work-search-row { gap: 16px; }
+  .work-search input { font-size: 16px; }
+  .work-filter-options { gap: 7px; }
+  .work-filter-options button { padding: 10px 12px; font-size: 11px; }
+  .work-grid-filtered .work-card { margin-bottom: 65px; }
+}
