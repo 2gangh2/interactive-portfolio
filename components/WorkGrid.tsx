@@ -25,8 +25,8 @@ function WorkImage({ project, layoutKey }: { project: (typeof projects)[number];
       const bounds = imageRef.current.getBoundingClientRect();
       const imageCenter = bounds.top + bounds.height / 2;
       const viewportHeight = window.innerHeight;
-      // Reveal while the photo's center is between 30% and 60% of the screen height.
-      setIsInView(imageCenter >= viewportHeight * 0.30 && imageCenter <= viewportHeight * 0.60);
+      // Reveal while the photo's center is between 30% and 70% of the screen height.
+      setIsInView(imageCenter >= viewportHeight * 0.30 && imageCenter <= viewportHeight * 0.70);
     };
     const scheduleUpdate = () => {
       if (frame === null) frame = window.requestAnimationFrame(update);
